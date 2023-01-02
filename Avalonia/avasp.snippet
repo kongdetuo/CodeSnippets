@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Define a StyledProperty</Title>
+            <Shortcut>avasp</Shortcut>
+            <Description>Code snippet for a property using StyledProperty as the backing store</Description>
+            <Author>tt</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>ownerType</ID>
+                    <ToolTip>Owner Type</ToolTip>
+					<Function>ClassName()</Function>
+                    <Default>Border</Default>
+                </Literal>
+				<Literal>
+					<ID>type</ID>
+					<ToolTip>Property Type</ToolTip>
+					<Default>object</Default>
+				</Literal>
+                <Literal>
+                    <ID>property</ID>
+                    <ToolTip>Property Name</ToolTip>
+                    <Default>MyProperty</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[
+public static readonly StyledProperty<$type$> $property$Property =
+    AvaloniaProperty.Register<$ownerType$, $type$>(nameof($property$));
+
+public $type$ $property$
+{
+    get => GetValue($property$Property);
+    set => SetValue($property$Property, value);
+}
+
+$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
